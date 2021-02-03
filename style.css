@@ -11,7 +11,7 @@ button{
     border:0px;
     background-color: limegreen;
     padding: 10px;
-    color: black
+    color: whitesmoke;
 
 }
 input{
@@ -27,4 +27,15 @@ input{
     margin: auto;
     margin-top: 30px;
     padding: 30px;
+}
+
+#day-grid{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
+
+#day-grid > div{
+    background-color: blue;
+    color: whitesmoke;
 }
