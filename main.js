@@ -3,52 +3,66 @@
 
 
 
-// GIVEN a weather dashboard with form inputs
-// going to need some sort of form for search input
-// *(bootstrap/javascript/jquery?)
 
-// WHEN I search for a city
-// A user types text inside the form input (give it an id such as "search-term") and is able to clicks a button (click event) to send an api request.
-// //Here is a click event:
-// -----------------
 
-// $("#search-button").("click", function () {
 document.querySelector("#search-form").addEventListener("submit", function (event) {
+
     event.preventDefault()
-    // console.log("happens")
     var selectedCity = document.querySelector("#search-term").value
-    console.log(selectedCity)
-    // val whateverUserPutInTheInputForm = $("#search-term").val()
-// var userFormInput = document.querySelector("#search-button")
-    // $("#search-term").val("");
-
-    // searchWeatherOfCity(whateverUserPutInTheInputForm)
-    // }
-    // --------------------
-    // THEN I am presented with current and future conditions for that city
-
-    // var APIKEY= "blah, blah, blah"
-
-    // function searchWeatherOfCity(searchValue) 
-})
+    console.log(selectedCity);
+    weatherSearch(selectedCity)
+});
 
 
 
+// --------------------
+// THEN I am presented with current and future conditions for that city
+
+// var APIKEY= "blah, blah, blah"
+
+// function searchWeatherOfCity(searchValue) 
+
+var APIKEY = "1ab5d5fb108148020574fbedf5d8f664";
+
+// `http://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${APIKEY}`;
+
+function weatherSearch(selectedCity) {
+
+    var apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${APIKEY}`;
+
+    fetch(apiUrl)
+
+        .then(function (response) {
+
+            if (response.ok) {
+                return response.json()
+            } else {
+                alert(`error: ${response.statusTest}`)
+            }
+        }) 
+        .then(function(data){
 
 
+        // var title=documentCreateElement("div").create a div, add a class (for css).textContent(data.name)...;
+        // var temp=create a p
+        // var humidity=
+        // var wind=
+        // var img=
 
-//     var apiUrl= `http:///......?q={searchValue}&appid=${APIKEY}....blah`
+        // var card =
+        // var cardBody=
 
-//     fetch(apiUrl)
+        // title.append(img)
+        // carBody.append(title, temp, humidity, wind)
+        // card.append(cardBody)
+        // document.querySelector("#??").append(card)
 
-//     .then(function(response){
 
-//         if (response.ok) {
-//             return response.json()
-//         } else {
-//             alert (`error: ${response.statusTest}`)
-//         }
-//     })
+        })
+
+}
+
+
 
 //     .then(function(data){
 
