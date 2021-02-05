@@ -20,14 +20,24 @@ function weatherSearch(selectedCity) {
             }
         })
         .then(function (data) {
-            var title = document.createElement(`h1`).innerHTML = (data.name)
+            var title = document.createElement(`h1`)
+            title.innerHTML = data.name
+            // title.classList.add()
             console.log(title)
+            
+
+            var weatherImg = document.createElement("img")
+            weatherImg.setAttribute("src",`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png` )
+            console.log(weatherImg)
+
             var temp = document.createElement("P").innerHTML = (data.main.temp + " F°")
             console.log(temp)
             var humidity = document.createElement("P").innerHTML = (data.main.humidity)
             console.log(humidity + "%")
             var windSpeed = document.createElement("P").innerHTML = (data.wind.speed + " MPH")
             console.log(windSpeed)
+            // do five day the way you tried to do the main card
+
 
             // var card =
             // var cardBody=
@@ -35,12 +45,13 @@ function weatherSearch(selectedCity) {
             // title.append(img)
             // carBody.append(title, temp, humidity, wind)
             // card.append(cardBody)
-            document.querySelector("#current-day").append(title, temp, humidity, windSpeed)
+            document.querySelector("#current-day").append(title,weatherImg)
 
 
         })
 
 }
+
 
 
 
@@ -51,6 +62,9 @@ function weatherSearch(selectedCity) {
 //         //decide how you want it to look on your HTML... use jquery to creat elements, add attributes and classes to those elements and write text into the elements using the data that came back and append it to some place on your html...
 // -------------------------
 
+
+
+// https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid={API key}
 
 //         //two more functions with api calls you need to write!
 //         fiveDayForecast(searchValue)
