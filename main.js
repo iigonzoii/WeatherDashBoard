@@ -1,9 +1,4 @@
-
-// little chuncks, little chunks, little chunks, little chunks, little chunks, little chunks, little chunks
-
-
-
-
+var APIKEY = "1ab5d5fb108148020574fbedf5d8f664";
 
 document.querySelector("#search-form").addEventListener("submit", function (event) {
 
@@ -14,48 +9,33 @@ document.querySelector("#search-form").addEventListener("submit", function (even
 });
 
 
-
-// --------------------
-// THEN I am presented with current and future conditions for that city
-
-// var APIKEY= "blah, blah, blah"
-
-// function searchWeatherOfCity(searchValue) 
-
-var APIKEY = "1ab5d5fb108148020574fbedf5d8f664";
-
-// `http://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${APIKEY}`;
-
 function weatherSearch(selectedCity) {
-
-    var apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${APIKEY}`;
-
+    var apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&units=imperial&appid=${APIKEY}`;
     fetch(apiUrl)
-
         .then(function (response) {
-
             if (response.ok) {
                 return response.json()
             } else {
                 alert(`error: ${response.statusTest}`)
             }
-        }) 
-        .then(function(data){
+        })
+        .then(function (data) {
+            var title = document.createElement(`h1`).innerHTML = (data.name)
+            console.log(title)
+            var temp = document.createElement("P").innerHTML = (data.main.temp + " F°")
+            console.log(temp)
+            var humidity = document.createElement("P").innerHTML = (data.main.humidity)
+            console.log(humidity + "%")
+            var windSpeed = document.createElement("P").innerHTML = (data.wind.speed + " MPH")
+            console.log(windSpeed)
 
+            // var card =
+            // var cardBody=
 
-        // var title=documentCreateElement("div").create a div, add a class (for css).textContent(data.name)...;
-        // var temp=create a p
-        // var humidity=
-        // var wind=
-        // var img=
-
-        // var card =
-        // var cardBody=
-
-        // title.append(img)
-        // carBody.append(title, temp, humidity, wind)
-        // card.append(cardBody)
-        // document.querySelector("#??").append(card)
+            // title.append(img)
+            // carBody.append(title, temp, humidity, wind)
+            // card.append(cardBody)
+            document.querySelector("#current-day").append(title, temp, humidity, windSpeed)
 
 
         })
@@ -69,6 +49,8 @@ function weatherSearch(selectedCity) {
 //         //this is where you have to look through the data object and decide what information you want, how to access it (data.name? data.weather[0].icon?)
 
 //         //decide how you want it to look on your HTML... use jquery to creat elements, add attributes and classes to those elements and write text into the elements using the data that came back and append it to some place on your html...
+// -------------------------
+
 
 //         //two more functions with api calls you need to write!
 //         fiveDayForecast(searchValue)
