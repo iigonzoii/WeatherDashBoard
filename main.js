@@ -30,11 +30,14 @@ function weatherSearch(selectedCity) {
             weatherImg.setAttribute("src",`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png` )
             console.log(weatherImg)
 
-            var temp = document.createElement("P").innerHTML = (data.main.temp + " F°")
+            var temp = document.createElement("P")
+            temp.innerHTML = data.main.temp + " F°"
             console.log(temp)
-            var humidity = document.createElement("P").innerHTML = (data.main.humidity)
-            console.log(humidity + "%")
-            var windSpeed = document.createElement("P").innerHTML = (data.wind.speed + " MPH")
+            var humidity = document.createElement("P")
+            humidity.innerHTML = data.main.humidity + "%"
+            console.log(humidity)
+            var windSpeed = document.createElement("P")
+            windSpeed.innerHTML = data.wind.speed + " MPH"
             console.log(windSpeed)
             // do five day the way you tried to do the main card
 
