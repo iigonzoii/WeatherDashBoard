@@ -31,14 +31,18 @@ function weatherSearch(selectedCity) {
             console.log(weatherImg)
 
             var temp = document.createElement("P")
-            temp.innerHTML = data.main.temp + " F°"
+            temp.innerHTML = "Temperature: " +  data.main.temp + " F°"
             console.log(temp)
+
             var humidity = document.createElement("P")
-            humidity.innerHTML = data.main.humidity + "%"
+            humidity.innerHTML = "Humidity: " +   data.main.humidity + "%"
             console.log(humidity)
+            
             var windSpeed = document.createElement("P")
-            windSpeed.innerHTML = data.wind.speed + " MPH"
+            windSpeed.innerHTML = "Wind Speed: " +   data.wind.speed + " MPH"
             console.log(windSpeed)
+
+        
             // do five day the way you tried to do the main card
 
 
@@ -49,13 +53,18 @@ function weatherSearch(selectedCity) {
             // carBody.append(title, temp, humidity, wind)
             // card.append(cardBody)
             document.querySelector("#current-day").append(title,weatherImg)
+            document.querySelector("#current-value1").append(temp)
+            document.querySelector("#current-value2").append(humidity)
+            document.querySelector("#current-value3").append(windSpeed)
+            
 
 
         })
 
 }
 
-
+// var lon = data.coord.lon
+// var lat = data.coord.lat
 
 
 //     .then(function(data){

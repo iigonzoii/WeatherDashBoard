@@ -43,9 +43,15 @@ input{
 #current-day img {
     margin-top: -30px;
     float: left;
+    padding:10px;
    
   }
   #current-day h1 {
       float:left;
+      padding: 10px;
     
+  }
+
+  #current-valueone{
+      float: left;
   }
