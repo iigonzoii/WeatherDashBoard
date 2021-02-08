@@ -52,10 +52,11 @@ function weatherSearch(selectedCity) {
             // title.append(img)
             // carBody.append(title, temp, humidity, wind)
             // card.append(cardBody)
-            document.querySelector("#current-day").append(title,weatherImg)
-            document.querySelector("#current-value1").append(temp)
-            document.querySelector("#current-value2").append(humidity)
-            document.querySelector("#current-value3").append(windSpeed)
+            document.querySelector("#current-day").appendChild(title)
+            title.append(weatherImg)
+            document.querySelector("#current-day").appendChild(temp)
+            document.querySelector("#current-day").appendChild(humidity)
+            document.querySelector("#current-day").appendChild(windSpeed)
             
 
 
