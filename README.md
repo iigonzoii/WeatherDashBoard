@@ -1,6 +1,6 @@
 # WeatherDashBoard
 
-<img src="./images/wdb.jpg" alt = "picture of deployed weather app">
+<img src="./images/wdb2.jpg" alt = "picture of deployed weather app">
 
 ## Motivation.
 I wanted to test my skills with api fetch and dynamic display of html using javascript
