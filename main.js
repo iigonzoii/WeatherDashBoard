@@ -4,7 +4,6 @@ document.querySelector("#search-form").addEventListener("submit", function (even
 
     event.preventDefault()
     var selectedCity = document.querySelector("#search-term").value
-    console.log(selectedCity);
     weatherSearch(selectedCity)
 });
 
@@ -24,7 +23,7 @@ function weatherSearch(selectedCity) {
 
             var longitude = data.coord.lon
             var latitude = data.coord.lat
-            var apiurl2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${APIKEY}`
+            var apiurl2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIKEY}`
             fetch(apiurl2)
                 .then(function (response2) {
                     if (response2.ok) {
@@ -34,12 +33,19 @@ function weatherSearch(selectedCity) {
                     }
                 })
                 .then(function (data2) {
-                    console.log(data2)
                     // create 5 days and append to five day element
+                    var dailyTemp = document.createElement("P")
+                    dailyTemp.innerHTML = "Temperature: " + data2.daily[0].temp.day + " F°";
+
+                    var dailyWeatherImg = document.createElement("img")
+                    dailyWeatherImg.setAttribute("src", `http://openweathermap.org/img/wn/${data2.daily[3].weather[0].icon}@2x.png`);
+
+                    var dailyHumidity = document.createElement("P")
+                    dailyHumidity.innerHTML = "Humidity: " + data2.daily[3].humidity + "%"
 
                     
                 })
-            
+
             document.querySelector("#current-day").innerHTML = ""
             var title = document.createElement(`h1`)
             title.innerHTML = data.name
@@ -55,21 +61,9 @@ function weatherSearch(selectedCity) {
             var humidity = document.createElement("P")
             humidity.innerHTML = "Humidity: " + data.main.humidity + "%"
 
-
             var windSpeed = document.createElement("P")
             windSpeed.innerHTML = "Wind Speed: " + data.wind.speed + " MPH"
 
-
-
-            // do five day the way you tried to do the main card
-
-
-            // var card =
-            // var cardBody=
-
-            // title.append(img)
-            // carBody.append(title, temp, humidity, wind)
-            // card.append(cardBody)
             document.querySelector("#current-day").appendChild(title)
             document.querySelector("#current-day").appendChild(weatherImg)
             document.querySelector("#current-day").appendChild(temp)
@@ -82,8 +76,6 @@ function weatherSearch(selectedCity) {
 
 }
 
-// var lon = data.coord.lon
-// var lat = data.coord.lat
 
 
 //     .then(function(data){
