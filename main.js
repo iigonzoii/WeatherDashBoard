@@ -10,6 +10,7 @@ document.querySelector("#search-form").addEventListener("submit", function (even
 
 
 function weatherSearch(selectedCity) {
+
     var apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&units=imperial&appid=${APIKEY}`;
     fetch(apiUrl)
         .then(function (response) {
@@ -20,29 +21,46 @@ function weatherSearch(selectedCity) {
             }
         })
         .then(function (data) {
+
+            var longitude = data.coord.lon
+            var latitude = data.coord.lat
+            var apiurl2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${APIKEY}`
+            fetch(apiurl2)
+                .then(function (response2) {
+                    if (response2.ok) {
+                        return response2.json()
+                    } else {
+                        alert(`error: ${response2.statusTest}`)
+                    }
+                })
+                .then(function (data2) {
+                    console.log(data2)
+                    // create 5 days and append to five day element
+
+                    
+                })
+            
+            document.querySelector("#current-day").innerHTML = ""
             var title = document.createElement(`h1`)
             title.innerHTML = data.name
             // title.classList.add()
-            console.log(title)
-            
+
 
             var weatherImg = document.createElement("img")
-            weatherImg.setAttribute("src",`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png` )
-            console.log(weatherImg)
+            weatherImg.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
 
             var temp = document.createElement("P")
-            temp.innerHTML = "Temperature: " +  data.main.temp + " F°"
-            console.log(temp)
+            temp.innerHTML = "Temperature: " + data.main.temp + " F°"
 
             var humidity = document.createElement("P")
-            humidity.innerHTML = "Humidity: " +   data.main.humidity + "%"
-            console.log(humidity)
-            
-            var windSpeed = document.createElement("P")
-            windSpeed.innerHTML = "Wind Speed: " +   data.wind.speed + " MPH"
-            console.log(windSpeed)
+            humidity.innerHTML = "Humidity: " + data.main.humidity + "%"
 
-        
+
+            var windSpeed = document.createElement("P")
+            windSpeed.innerHTML = "Wind Speed: " + data.wind.speed + " MPH"
+
+
+
             // do five day the way you tried to do the main card
 
 
@@ -53,11 +71,11 @@ function weatherSearch(selectedCity) {
             // carBody.append(title, temp, humidity, wind)
             // card.append(cardBody)
             document.querySelector("#current-day").appendChild(title)
-            title.append(weatherImg)
+            document.querySelector("#current-day").appendChild(weatherImg)
             document.querySelector("#current-day").appendChild(temp)
             document.querySelector("#current-day").appendChild(humidity)
             document.querySelector("#current-day").appendChild(windSpeed)
-            
+
 
 
         })
