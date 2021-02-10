@@ -20,4 +20,4 @@ once a city is searched you should be able to see your search history displayed 
 
 
 ## Deployed application
-iigonzoii.github.io/weatherdashboard/
+https://iigonzoii.github.io/WeatherDashBoard/
