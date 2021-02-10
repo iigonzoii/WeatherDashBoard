@@ -33,23 +33,21 @@ function weatherSearch(selectedCity) {
                     }
                 })
                 .then(function (data2) {
-                    // create 5 days and append to five day element
-                    // document.querySelector("#day-grid").innerHTML = ""
-                    var dailyTemp = document.createElement("P")
-                    dailyTemp.innerHTML = "Temperature: " + data2.daily[0].temp.day + " F°";
+                    document.querySelector("#day-grid").innerHTML = ""
+                    for (let i = 1; i < 6; i++) {
+                        var day = document.createElement('div')
+                        day.innerHTML = `
+                        <p>Temperature: ${data2.daily[i].temp.day} F°</p>                
+                        <img src="http://openweathermap.org/img/wn/${data2.daily[i].weather[0].icon}@2x.png">
+                        <p>Humidity: ${data2.daily[i].humidity}%</p>
+                        `
+                        document.querySelector("#day-grid").appendChild(day)
+                    }
 
-                    var dailyWeatherImg = document.createElement("img")
-                    dailyWeatherImg.setAttribute("src", `http://openweathermap.org/img/wn/${data2.daily[3].weather[0].icon}@2x.png`);
-
-                    var dailyHumidity = document.createElement("P")
-                    dailyHumidity.innerHTML = "Humidity: " + data2.daily[3].humidity + "%"
-                    // document.querySelector("#day-grid").innerHTML = ""
-
-                    document.querySelector("#day-grid > div").append(dailyWeatherImg)
-                    document.querySelector("#day-grid > div").append(dailyTemp)
-                    document.querySelector("#day-grid > div").append(dailyHumidity)
+                    // document.querySelector("#day-grid").append(dailyTemp)
+                    // document.querySelector("#day-grid").append(dailyHumidity)
                 })
- 
+
             document.querySelector("#current-day").innerHTML = ""
             // document.querySelector("#day-grid").innerHTML = "".... WHERE DO I GO DAMNIT?!?!?!?!
             var title = document.createElement(`h1`)
@@ -78,7 +76,7 @@ function weatherSearch(selectedCity) {
             // document.querySelector("#day-grid").innerHTML = ""
 
         })
-        // document.querySelector("#day-grid").innerHTML = ""
+    //
 }
 
 
