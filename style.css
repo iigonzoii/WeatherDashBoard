@@ -38,6 +38,8 @@ input{
 #day-grid > div{
     background-color: blue;
     color: whitesmoke;
+    padding: 5px;
+    border: 5px solid black;
 }
 
 #current-day img {

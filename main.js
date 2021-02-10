@@ -34,6 +34,7 @@ function weatherSearch(selectedCity) {
                 })
                 .then(function (data2) {
                     // create 5 days and append to five day element
+                    // document.querySelector("#day-grid").innerHTML = ""
                     var dailyTemp = document.createElement("P")
                     dailyTemp.innerHTML = "Temperature: " + data2.daily[0].temp.day + " F°";
 
@@ -42,11 +43,15 @@ function weatherSearch(selectedCity) {
 
                     var dailyHumidity = document.createElement("P")
                     dailyHumidity.innerHTML = "Humidity: " + data2.daily[3].humidity + "%"
+                    // document.querySelector("#day-grid").innerHTML = ""
 
-                    
+                    document.querySelector("#day-grid > div").append(dailyWeatherImg)
+                    document.querySelector("#day-grid > div").append(dailyTemp)
+                    document.querySelector("#day-grid > div").append(dailyHumidity)
                 })
-
+ 
             document.querySelector("#current-day").innerHTML = ""
+            // document.querySelector("#day-grid").innerHTML = "".... WHERE DO I GO DAMNIT?!?!?!?!
             var title = document.createElement(`h1`)
             title.innerHTML = data.name
             // title.classList.add()
@@ -70,10 +75,10 @@ function weatherSearch(selectedCity) {
             document.querySelector("#current-day").appendChild(humidity)
             document.querySelector("#current-day").appendChild(windSpeed)
 
-
+            // document.querySelector("#day-grid").innerHTML = ""
 
         })
-
+        // document.querySelector("#day-grid").innerHTML = ""
 }
 
 
