@@ -40,14 +40,14 @@ function weatherSearch(selectedCity) {
                         <p>Humidity: ${data2.daily[i].humidity}%</p>
                         `
                         document.querySelector("#day-grid").appendChild(day)
-                    }                 
+                    }
                 })
 
             document.querySelector("#current-day").innerHTML = ""
-           
+
             var title = document.createElement(`h1`)
             title.innerHTML = data.name
-            
+
             var weatherImg = document.createElement("img")
             weatherImg.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
 
