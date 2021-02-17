@@ -9,7 +9,7 @@ document.querySelector("#search-form").addEventListener("submit", function (even
 
 function weatherSearch(selectedCity) {
 
-    var apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&units=imperial&appid=${APIKEY}`;
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&units=imperial&appid=${APIKEY}`;
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
@@ -36,7 +36,7 @@ function weatherSearch(selectedCity) {
                         var day = document.createElement('div')
                         day.innerHTML = `
                         <p>Temperature: ${data2.daily[i].temp.day} F°</p>                
-                        <img src="http://openweathermap.org/img/wn/${data2.daily[i].weather[0].icon}@2x.png">
+                        <img src="https://openweathermap.org/img/wn/${data2.daily[i].weather[0].icon}@2x.png">
                         <p>Humidity: ${data2.daily[i].humidity}%</p>
                         `
                         document.querySelector("#day-grid").appendChild(day)
@@ -49,7 +49,7 @@ function weatherSearch(selectedCity) {
             title.innerHTML = data.name
 
             var weatherImg = document.createElement("img")
-            weatherImg.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
+            weatherImg.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
 
             var temp = document.createElement("P")
             temp.innerHTML = "Temperature: " + data.main.temp + " F°"
