@@ -7,12 +7,16 @@ margin: 0px;
 font-family: sans-serif;
 }
 
-button{
+.city-input{
     border:0px;
-    background-color: limegreen;
+    background-color: blue;
     padding: 10px;
     color: whitesmoke;
-
+    display:block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
 }
 input{
     padding:8px 0px 8px 0px ;
@@ -20,7 +24,7 @@ input{
 
 #container{
     display: grid;
-    grid-template-columns:1fr 3fr;
+    grid-template-columns:2fr 7fr;
     grid-gap: 30px;
     background-color: #ccc;
     max-width: 900px;
@@ -32,7 +36,7 @@ input{
 #day-grid{
     display: grid;
     grid-template-columns:1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 30px;
+    grid-gap: 15px;
 }
 
 #day-grid > div{
@@ -44,16 +48,26 @@ input{
 
 #current-day img {
     margin-top: -25px; 
-    /* float: left; */
-  
-   
+       
   }
+
   #current-day h1 {
       float:left;
       padding: 10px;
     
   }
 
-  /* #current-valueone{
-      float: left;
-  } */
+  .search-button{
+      display: inline;
+      border:0px;
+      background-color: blue;
+      padding: 10px;
+      color: whitesmoke;
+      margin-bottom: 10px;
+      border-radius: 0px 10px 10px 0px;
+      
+  }
+  input{
+    border-radius: 10px 0px 0px 10px;
+  }
+
