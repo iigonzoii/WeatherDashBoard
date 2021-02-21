@@ -1,5 +1,6 @@
 # WeatherDashBoard
 
+<img src="./images/wdb1.jpg" alt = "picture of start up screen">
 <img src="./images/wdb3.jpg" alt = "picture of deployed weather app">
 
 ## Motivation.
