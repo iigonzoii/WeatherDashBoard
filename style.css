@@ -27,7 +27,7 @@ body{
 @media (min-width: 100px){
     #day-grid{
         display: grid;
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:1fr;
         grid-gap: 5px;
     } 
 
@@ -59,14 +59,14 @@ body{
         }
 }
 
-@media (min-width: 700px){   
+@media (min-width: 500px){   
    
-    /* #day-grid{
+    #day-grid{
         display: grid;
-        grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns:1fr 1fr 1fr;
         grid-gap: 5px;
         
-    } */
+    }
     #day-grid>div{
         background-color: blue;
         color: whitesmoke;
@@ -74,17 +74,11 @@ body{
         border: 5px solid black;
         
     }
-    #container-two{
-        
-            display: grid;
-            display: inline-block;
-            grid-template-columns:1fr 1fr 1fr 1fr 1fr;
-            grid-gap: 5px;    
-    }
+    
 
     #container{
         display: grid;
-        grid-template-columns:2fr 7fr;
+        grid-template-columns:1fr 20fr;
         grid-gap: 30px;
         background-color: rgb(70, 68, 68);
         max-width: 1000px;
@@ -109,7 +103,7 @@ body{
     }
     #container{
         display: grid;
-        grid-template-columns:2fr 7fr;
+        grid-template-columns:2fr 15fr;
         grid-gap: 30px;
         background-color: #ccc;
         max-width: 1000px;
@@ -124,23 +118,13 @@ body{
         }
 }
 
-/* #day-grid{
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 15px;
-} */
-
-/* #day-grid > div{
-    background-color: blue;
-    color: whitesmoke;
-    padding: 5px;
-    border: 5px solid black;
-} */
 
 #current-day img {
     margin-top: -25px; 
+    size: 50%;
 
 }
+
 #current-day h1 {
 float:left;
 padding: 10px;  
@@ -156,9 +140,6 @@ padding: 10px;
     border-radius: 0px 10px 10px 0px;
     outline: none;
     cursor: pointer;
-}
-#container>div{
-padding: 30px;
 }
 
 input{
